@@ -3,7 +3,23 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import AuthPage from '../components/AuthPage/AuthPage';
 import ResetPasswordPage from '../components/ResetPasswordPage/ResetPasswordPage'; // Import trang reset mật khẩu
 import HomePage from '../components/HomePage/HomePage';
-import UserHP from '../components/UserHomePage/UserHP'
+import Homepage from '../components/UserHomePage/homepage';
+import CoBan from "../components/UserHomePage/CoBan";
+//import ChuyenKhoa from "./components/ChuyenKhoa";
+import BacSi from "../components/UserHomePage/bacSi";
+import TongQuat from "../components/UserHomePage/TongQuat";
+import UserProfile from "../components/UserHomePage/UserProfile";
+import CoSo from "../components/UserHomePage/CoSo";
+import CoSoDetail from '../components/UserHomePage/CoSoDetail'
+import Login from "../components/UserHomePage/Login";
+import DoctorDetail from '../components/UserHomePage/DoctorDetail';
+import BookingForm from '../components/UserHomePage/BookingForm';
+import LichKham from '../components/UserHomePage/LichKham'
+const ProtectedRoute = ({ element, redirectTo }) => {
+  const isAuthenticated = localStorage.getItem('authToken');  // Kiểm tra token trong localStorage
+
+  return isAuthenticated ? element : <Navigate to={redirectTo} />;
+};
 function App() {
   // const [userRole, setUserRole] = useState(null);  // null - chưa xác định, 'admin' - admin, 'user' - user
 
@@ -21,11 +37,28 @@ function App() {
       <div className="App">
         <Routes>
           {/* Routes cho Admin */}
-          <Route path="/" element={<UserHP />} /> {/* Trang đăng nhập */}
           <Route path="/AuthPage" element={<AuthPage />} /> {/* Trang đăng nhập */}
           <Route path="/reset-password" element={<ResetPasswordPage />} /> {/* Trang reset mật khẩu */}
           <Route path="/HomePage" element={<HomePage />} />{/* Trang chủ */}
+          <Route path="/Login" element={<Login />} />
           {/* Routes cho User */}
+          <Route path="/CoBan" element={<CoBan />} />
+          <Route path="/CoSo" element={<CoSo />} />
+          <Route path="/CoSo/:id" element={<CoSoDetail />} />
+          {/* <Route path="/chuyenKhoa" element={<ChuyenKhoa />} /> */}
+          <Route path="/bacSi" element={<BacSi />} />
+          <Route path="/bacSi/:id" element={<DoctorDetail />} />
+          <Route path="/booking/:id" element={<BookingForm />} />
+          <Route path="/TongQuat" element={<TongQuat />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path='/lichkham' element={<LichKham />} />
+          {/* <Route path="/profile" element={<UserProfile />} />
+          <Route path="/CoBan" element={<ProtectedRoute element={<CoBan />} redirectTo="/" />} />
+          <Route path="/bacSi" element={<ProtectedRoute element={<BacSi />} redirectTo="/" />} />
+          <Route path="/TongQuat" element={<ProtectedRoute element={<TongQuat />} redirectTo="/" />} />
+          <Route path="/profile" element={<ProtectedRoute element={<UserProfile />} redirectTo="/" />} />
+          */}
+          <Route path="/" element={<Homepage />} /> Trang đăng nhập
         </Routes>
       </div>
     </Router>
