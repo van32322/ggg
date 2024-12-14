@@ -65,10 +65,10 @@ function Login2() {
                 // Check user role (assuming "role" is part of the response)
                 const userRole = userData.role;  // Assuming role can be 'admin' or 'user'
 
-                if (userRole === 'admin') {
-                    navigate("/admin"); // Redirect to Admin page
-                } else if (userRole === 'user') {
-                    navigate("/user"); // Redirect to User page
+                if (userRole === 'ADMIN') {
+                    navigate("/HomePage"); // Redirect to Admin page
+                } else if (userRole === 'USER') {
+                    navigate("/"); // Redirect to User page
                 }
 
                 setIsLoginModalOpen(true); // Open modal on successful login
@@ -103,7 +103,7 @@ function Login2() {
                 refreshAccessToken(); // Refresh token before it expires
             }
         }
-    }, []);
+    }, [refreshAccessToken]);
 
     return (
         <div>

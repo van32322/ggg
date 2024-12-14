@@ -1,4 +1,4 @@
-import React, { Link, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./UserProfile.module.css"
 import Header from "./Header"
 import LichKham from "./LichKham"

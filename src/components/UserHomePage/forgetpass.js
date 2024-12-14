@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./UserHP.module.css";
 import OTPInput from "./OTPInput";
 function ForgetPass() {

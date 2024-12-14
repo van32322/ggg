@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'; // Import React Router
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import React Router
 import AuthPage from '../components/AuthPage/AuthPage';
 import ResetPasswordPage from '../components/ResetPasswordPage/ResetPasswordPage'; // Import trang reset mật khẩu
 import HomePage from '../components/HomePage/HomePage';
@@ -15,11 +15,11 @@ import Login from "../components/UserHomePage/Login";
 import DoctorDetail from '../components/UserHomePage/DoctorDetail';
 import BookingForm from '../components/UserHomePage/BookingForm';
 import LichKham from '../components/UserHomePage/LichKham'
-const ProtectedRoute = ({ element, redirectTo }) => {
-  const isAuthenticated = localStorage.getItem('authToken');  // Kiểm tra token trong localStorage
+//const ProtectedRoute = ({ element, redirectTo }) => {
+// const isAuthenticated = localStorage.getItem('authToken');  // Kiểm tra token trong localStorage
 
-  return isAuthenticated ? element : <Navigate to={redirectTo} />;
-};
+// return isAuthenticated ? element : <Navigate to={redirectTo} />;
+//};
 function App() {
   // const [userRole, setUserRole] = useState(null);  // null - chưa xác định, 'admin' - admin, 'user' - user
 
